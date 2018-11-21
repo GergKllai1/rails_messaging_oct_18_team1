@@ -12,3 +12,9 @@ Feature: User can compose message
         Then I should be on the login page
 
     Scenario: When I log in correctly I can see the inbox
+        Then I fill in 'Email' field with 'real@email.com'
+        And I fill in 'Password' field with 'password'
+        And I click 'Log in'
+        Then I should see 'Signed in successfully.'
+        And I should be on welcome site
+

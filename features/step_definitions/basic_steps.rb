@@ -19,3 +19,8 @@ end
 Then('I should be on the login page') do
     visit new_user_session_path
 end  
+
+Then('I should be on welcome site') do
+    visit welcome_index_path
+end
+  
