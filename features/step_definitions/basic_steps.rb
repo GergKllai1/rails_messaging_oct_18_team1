@@ -15,3 +15,7 @@ end
 When('I click {string}') do |element|
     click_on element
 end
+
+Then('I should be on the login page') do
+    visit new_user_session_path
+end  
