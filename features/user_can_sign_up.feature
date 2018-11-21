@@ -29,3 +29,8 @@ Feature: User can sign up
         And I should see 'Email has already been taken'
         And I should see "Password confirmation doesn't match Password"
         And I should see 'Password is too short (minimum is 8 characters)'
+        When I fill in 'Name' field with 'Schneiderman'
+        And I click 'Create'
+        Then I should see 'Name is too long (maximum is 10 characters)'
+
+    
