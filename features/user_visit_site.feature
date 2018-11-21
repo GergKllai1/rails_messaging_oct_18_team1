@@ -8,4 +8,4 @@ Feature: User visits site
         Then I should see 'Craft Academy Mailboxer'
         And I should see 'Login'
         And I should see 'Sign up'
-        And I should see 'CA Mailboxer
+        And I should see 'CA Mailboxer'
