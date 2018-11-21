@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
-
   # conversations
   resources :conversations do
     member do
@@ -19,5 +18,4 @@ Rails.application.routes.draw do
       post :untrash
     end
   end
-
 end
