@@ -1,6 +1,6 @@
-Feature: Visit site
+Feature: User visits site
     As a User
-    Given I visit the main site
+    In order to access the site
     I should see an opening page
 
 Scenario: When visiting the site I should see all the content 
