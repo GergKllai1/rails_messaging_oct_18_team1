@@ -32,5 +32,3 @@ Feature: User can sign up
         When I fill in 'Name' field with 'Schneiderman'
         And I click 'Create'
         Then I should see 'Name is too long (maximum is 10 characters)'
-
-    

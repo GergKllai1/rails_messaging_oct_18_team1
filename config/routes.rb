@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # mailbox folder routes
-  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
-  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
-  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+  get 'mailbox/inbox' => 'mailbox#inbox', as: :mailbox_inbox
+  get 'mailbox/sent' => 'mailbox#sent', as: :mailbox_sent
+  get 'mailbox/trash' => 'mailbox#trash', as: :mailbox_trash
 
   # conversations
   resources :conversations do
