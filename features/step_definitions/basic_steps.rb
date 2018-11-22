@@ -24,7 +24,10 @@ When('I choose {string} from {string}') do |input, field|
     select input, from: field
 end
 
-#For debugging purposes
-#Given('show me the page') do
-#    save_and_open_page
-#end 
+Given('I am logged in') do
+    visit new_user_session_path
+    fill_in 'Email', with: 'real@email.com'
+    fill_in 'Password', with: 'password'
+    click_on 'Log in'
+    visit new_conversation_path
+end

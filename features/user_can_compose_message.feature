@@ -7,18 +7,7 @@ Feature: User can compose message
         Given the following user exists
         | name | email          | password | password_confirmation |
         | Greg | real@email.com | password | password              |
-        And I visit the site
-        When I click 'Login'
-        Then I should be on the login page
-        Then I fill in 'Email' field with 'real@email.com'
-        And I fill in 'Password' field with 'password'
-        And I click 'Log in'
-        Then I should see 'Signed in successfully.'
-        And I should be on welcome site
-        Then I click 'Inbox'
-        And I should be on the inbox site
-        And I click 'Compose'
-        And I should be on the compose message site
+        And I am logged in
 
     Scenario: 'When I fill in the compose message form I can send a message to someone'
         When I choose 'Greg' from 'Recipients'
@@ -27,13 +16,11 @@ Feature: User can compose message
         And I click 'Message' 
         Then I should see 'Your message was successfully sent!'
         
-    Scenario: "When I don't fill in the compose message form I get an error message"
-        When I click 'Inbox'
-        Then I should be on the inbox site
-        And I click 'Compose'
-        Then I should be on the compose message site
+    Scenario: "When I don't fill in the email I get an error message"
         When I click 'Message' 
         Then I should see 'You have to select a recipient!'
+
+    Scenario: "When I don't fill in the subject or the message I get an error message"
         When I choose 'Greg' from 'Recipients'
         And I click 'Message'
         Then I should see 'You have to fill in subject and message!'
