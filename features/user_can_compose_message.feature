@@ -1,7 +1,7 @@
 Feature: User can compose message
     As a user
     In order to communicate with others
-    I should be able to send and receive messages
+    I should be able to send messages
 
     Background: 
         Given the following user exists
@@ -27,10 +27,13 @@ Feature: User can compose message
         And I click 'Message' 
         Then I should see 'Your message was successfully sent!'
         
-    Scenario: 'When I dont fill in the compose message form I get an error message'
+    Scenario: "When I don't fill in the compose message form I get an error message"
         When I click 'Inbox'
         Then I should be on the inbox site
         And I click 'Compose'
         Then I should be on the compose message site
         When I click 'Message' 
-        Then I should see 'You have to select a recipient, fill in subject and message'
+        Then I should see 'You have to select a recipient!'
+        When I choose 'Greg' from 'Recipients'
+        And I click 'Message'
+        Then I should see 'You have to fill in subject and message!'

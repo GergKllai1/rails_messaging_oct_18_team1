@@ -7,12 +7,15 @@ class ConversationsController < ApplicationController
   def create
     recipients = User.where(id: conversation_params[:recipients])
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
-    unless recipients == [] || conversation.nil?
+    if recipients == [] 
+      flash[:error] = 'You have to select a recipient!'
+      render new_conversation_path
+    elsif conversation.nil?
+      flash[:error] = 'You have to fill in subject and message!'
+      render new_conversation_path
+    else
       flash[:success] = 'Your message was successfully sent!'
       redirect_to conversation_path(conversation)
-    else
-      flash[:error] = 'You have to select a recipient, fill in subject and message'
-      render new_conversation_path
     end
   end
 
