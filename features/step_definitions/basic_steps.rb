@@ -24,6 +24,14 @@ When('I am on the login page') do
     visit new_user_session_path
 end
 
-When('I press {string}') do |string|
-    click_button string
+When('I press {string}') do |link_name|
+    click_link link_name
+end
+
+When('I am on the {string} page') do |page_name|
+    visit root_path
+end
+
+Given('show me the page') do
+    save_and_open_page
 end

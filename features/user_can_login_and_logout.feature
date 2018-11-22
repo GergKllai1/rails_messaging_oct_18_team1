@@ -6,14 +6,15 @@ Feature: User can log in and log out
     Background: 
         Given the following user exists
         | name | email          | password | password_confirmation |
-        | Jon | fake@email.com | password | password              |
-    
+        | Jon  | jon@email.com  | password | password              |
 
     Scenario: When I click on login link, I will see login form
-        When I am on the login page
-        And I fill in 'Email' field with 'fake@email.com'
+        Given I am on the login page
+        And I fill in 'Email' field with 'jon@email.com'
+        Then show me the page
         And I fill in 'Password' field with 'password'
-        And I press 'Log in'
+        And I click 'Log in'
         Then I should see 'Signed in successfully.'
-
+        When I click 'Logout'
+        Then I should see 'Signed out successfully.'
 
