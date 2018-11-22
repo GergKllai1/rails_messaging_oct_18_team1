@@ -7,7 +7,8 @@ Feature: User can compose message
         Given the following user exists
         | name | email          | password | password_confirmation |
         | Greg | real@email.com | password | password              |
-        And I am logged in
+        And I am logged in as 'Greg'
+        And I visit compose message site
 
     Scenario: 'When I fill in the compose message form I can send a message to someone'
         When I choose 'Greg' from 'Recipients'

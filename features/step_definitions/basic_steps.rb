@@ -24,10 +24,11 @@ When('I choose {string} from {string}') do |input, field|
     select input, from: field
 end
 
-Given('I am logged in') do
-    visit new_user_session_path
-    fill_in 'Email', with: 'real@email.com'
-    fill_in 'Password', with: 'password'
-    click_on 'Log in'
+Given('I am logged in as {string}') do |name|
+    user = User.find_by(name: name)
+    login_as(user, scope: :user)
+end
+
+Given('I visit compose message site') do
     visit new_conversation_path
 end
