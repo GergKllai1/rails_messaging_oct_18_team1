@@ -23,3 +23,7 @@ end
 When('I choose {string} from {string}') do |input, field|
     select input, from: field
 end
+
+Given('show me the page') do
+    save_and_open_page
+end 

@@ -26,3 +26,11 @@ Feature: User can compose message
         And I fill in 'conversation_body' field with 'Hello there'
         And I click 'Message' 
         Then I should see 'Your message was successfully sent!'
+        
+    Scenario: 'When I dont fill in the compose message form I get an error message'
+        When I click 'Inbox'
+        Then I should be on the inbox site
+        And I click 'Compose'
+        Then I should be on the compose message site
+        When I click 'Message' 
+        Then I should see 'You have to select a recipient, fill in subject and message'
