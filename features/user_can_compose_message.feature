@@ -23,6 +23,6 @@ Feature: User can compose message
     Scenario: 'When I fill in the compose message form I can send a message to someone'
         When I choose 'Greg' from 'Recipients'
         And I fill in 'Subject' field with 'Hello'
-        And I fill in 'message' field with 'Hello agian'
-        And I click 'Send message' 
+        And I fill in 'conversation_body' field with 'Hello there'
+        And I click 'Message' 
         Then I should see 'Your message was successfully sent!'

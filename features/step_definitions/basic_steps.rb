@@ -12,6 +12,10 @@ Given('I am on the sign up page') do
     visit new_user_registration_path
 end
 
+When('I fill in {string} field with {string}') do |field, input|
+    fill_in field, with: input
+end
+
 When('I click {string}') do |element|
     click_on element
 end
@@ -35,5 +39,3 @@ end
 When("I choose {string} from {string}") do |input, field|
     select input, from: field
 end
-
-  
