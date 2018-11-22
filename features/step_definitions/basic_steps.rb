@@ -20,18 +20,10 @@ When('I click {string}') do |element|
     click_on element
 end
 
-When("I am on the login page") do
-    pending # Write code here that turns the phrase above into concrete actions
+When('I am on the login page') do
+    visit new_user_session_path
 end
 
-When("I fill in my email correctly") do
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I fill in my password correctly") do
-    pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I press {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+When('I press {string}') do |string|
+    click_button string
 end
