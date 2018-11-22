@@ -48,3 +48,11 @@ end
 Given('I am on the index page') do
     visit welcome_index_path
 end
+
+When('I choose {string} from {string}') do |input, field|
+    select input, from: field
+end
+
+Given('I visit compose message site') do
+    visit new_conversation_path
+end
