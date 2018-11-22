@@ -18,3 +18,10 @@ Feature: User can log in and log out
         When I click 'Logout'
         Then I should see 'Signed out successfully.'
 
+    Scenario: When I log in incorrectly, I will see error message
+        Given I am on the login page
+        And I fill in 'Email' field with 'jon@email.com'
+        And I fill in 'Password' field with 'pasword'
+        And I click 'Log in'
+        Then I should see 'Invalid Email or password'
+        
