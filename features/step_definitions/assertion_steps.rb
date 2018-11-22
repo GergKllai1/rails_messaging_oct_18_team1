@@ -7,17 +7,17 @@ Then('I should be on the sign up page') do
 end
 
 Then('I should be on the login page') do
-    current_path.should == new_user_session_path
+    expect(current_path).to eq new_user_session_path
 end  
 
 Then('I should be on welcome site') do
-    current_path.should == root_path
+    expect(current_path).to eq root_path
 end
 
 Then('I should be on the inbox site') do
-    current_path.should == mailbox_inbox_path
+    expect(current_path).to eq mailbox_inbox_path
 end  
 
 Then('I should be on the compose message site') do
-    current_path.should == new_conversation_path
+    expect(current_path).to eq new_conversation_path
 end
