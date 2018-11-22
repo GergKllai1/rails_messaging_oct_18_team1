@@ -12,15 +12,26 @@ Given('I am on the sign up page') do
     visit new_user_registration_path
 end
 
+When('I fill in {string} field with {string}') do |field, input|
+    fill_in field, with: input
+end
+
 When('I click {string}') do |element|
     click_on element
 end
 
-Then('I should be on the login page') do
-    visit new_user_session_path
-end  
-
-Then('I should be on welcome site') do
-    visit welcome_index_path
+When("I am on the login page") do
+    pending # Write code here that turns the phrase above into concrete actions
 end
-  
+
+When("I fill in my email correctly") do
+    pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I fill in my password correctly") do
+    pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I press {string}") do |string|
+    pending # Write code here that turns the phrase above into concrete actions
+end
