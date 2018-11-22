@@ -20,22 +20,6 @@ When('I click {string}') do |element|
     click_on element
 end
 
-Then('I should be on the login page') do
-    visit new_user_session_path
-end  
-
-Then('I should be on welcome site') do
-    visit welcome_index_path
-end
-
-Then("I should be on the inbox site") do
-    visit mailbox_inbox_path
-end  
-
-Then("I should be on the compose message site") do
-    visit new_conversation_path
-end
-
-When("I choose {string} from {string}") do |input, field|
+When('I choose {string} from {string}') do |input, field|
     select input, from: field
 end
