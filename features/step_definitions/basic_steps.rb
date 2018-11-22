@@ -32,19 +32,6 @@ When('I am on the {string} page') do |page_name|
     visit root_path
 end
 
-Given('I fill in {string} with {string}') do |field, email|
-    fill_in field, with: email
-end
-
-=begin
 Given('I tick remember me') do
     check 'user_remember_me'
 end
-=end
-
-# for debugging
-=begin
-Given('show me the page') do
-    save_and_open_page
-end
-=end
