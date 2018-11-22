@@ -23,4 +23,11 @@ end
 Then('I should be on welcome site') do
     visit welcome_index_path
 end
-  
+
+Then("I should be on the inbox site") do
+    visit mailbox_inbox_path
+end  
+
+Then("I should be on the compose message site") do
+    visit new_conversation_path
+end

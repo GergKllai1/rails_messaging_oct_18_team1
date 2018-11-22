@@ -10,11 +10,14 @@ Feature: User can compose message
         And I visit the site
         When I click 'Login'
         Then I should be on the login page
-
-    Scenario: When I log in correctly I can see the inbox
         Then I fill in 'Email' field with 'real@email.com'
         And I fill in 'Password' field with 'password'
         And I click 'Log in'
         Then I should see 'Signed in successfully.'
         And I should be on welcome site
+        Then I click 'Inbox'
+        And I should be on the inbox site
+        And I click 'Compose'
+        And I should be on the compose message site
 
+    Scenario: 'When I fill in the compose message form I can send a message to someone'
