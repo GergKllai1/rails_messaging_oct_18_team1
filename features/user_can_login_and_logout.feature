@@ -24,4 +24,15 @@ Feature: User can log in and log out
         And I fill in 'Password' field with 'pasword'
         And I click 'Log in'
         Then I should see 'Invalid Email or password'
-        
+    
+    Scenario: When I tick remember me, the site remembers my data
+        Given I am on the login page
+        And I fill in 'Email' with 'jon@email.com'
+        And I fill in 'Password' with 'password'
+        And I tick remember me
+        And I click 'Log in'
+        Then I should see 'Signed in successfully.'
+        And I click 'Logout'
+        Then I should see 'Signed out successfully.'
+        And I click 'Log in'
+        Then I should see 'Email' field with 'jon@email.com'

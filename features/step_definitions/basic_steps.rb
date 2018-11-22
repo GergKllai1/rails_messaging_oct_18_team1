@@ -35,3 +35,11 @@ end
 Given('show me the page') do
     save_and_open_page
 end
+
+Given('I fill in {string} with {string}') do |field, email|
+    fill_in field, with: email
+end
+
+Given('I tick remember me') do
+    check 'user_remember_me'
+end

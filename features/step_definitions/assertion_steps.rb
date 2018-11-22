@@ -13,3 +13,7 @@ end
 Then('I should be on welcome site') do
     visit welcome_index_path
 end
+
+Then('I should see {string} field with {string}') do |string, string2|
+    pending # Write code here that turns the phrase above into concrete actions
+end
