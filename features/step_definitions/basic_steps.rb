@@ -31,3 +31,9 @@ end
 Then("I should be on the compose message site") do
     visit new_conversation_path
 end
+
+When("I choose {string} from {string}") do |input, field|
+    select input, from: field
+end
+
+  

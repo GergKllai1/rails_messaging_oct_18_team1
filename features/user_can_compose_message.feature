@@ -21,3 +21,8 @@ Feature: User can compose message
         And I should be on the compose message site
 
     Scenario: 'When I fill in the compose message form I can send a message to someone'
+        When I choose 'Greg' from 'Recipients'
+        And I fill in 'Subject' field with 'Hello'
+        And I fill in 'message' field with 'Hello agian'
+        And I click 'Send message' 
+        Then I should see 'Your message was successfully sent!'
