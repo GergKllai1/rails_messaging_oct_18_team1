@@ -11,28 +11,23 @@ Feature: User can log in and log out
     Scenario: When I click on login link, I will see login form
         Given I am on the login page
         And I fill in 'Email' field with 'jon@email.com'
-        Then show me the page
         And I fill in 'Password' field with 'password'
+        And I tick remember me
         And I click 'Log in'
         Then I should see 'Signed in successfully.'
         When I click 'Logout'
         Then I should see 'Signed out successfully.'
 
-    Scenario: When I log in incorrectly, I will see error message
+    Scenario: When I log in with incorrect password
         Given I am on the login page
         And I fill in 'Email' field with 'jon@email.com'
         And I fill in 'Password' field with 'pasword'
         And I click 'Log in'
         Then I should see 'Invalid Email or password'
     
-    Scenario: When I tick remember me, the site remembers my data
+    Scenario: When I log in with incorrect email
         Given I am on the login page
-        And I fill in 'Email' with 'jon@email.com'
-        And I fill in 'Password' with 'password'
-        And I tick remember me
+        And I fill in 'Email' field with 'jone@email.com'
+        And I fill in 'Password' field with 'password'
         And I click 'Log in'
-        Then I should see 'Signed in successfully.'
-        And I click 'Logout'
-        Then I should see 'Signed out successfully.'
-        And I click 'Log in'
-        Then I should see 'Email' field with 'jon@email.com'
+        Then I should see 'Invalid Email or password'
