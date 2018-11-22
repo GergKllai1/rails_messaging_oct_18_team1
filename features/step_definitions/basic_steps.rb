@@ -20,13 +20,33 @@ When('I click {string}') do |element|
     click_on element
 end
 
-When('I choose {string} from {string}') do |input, field|
-    select input, from: field
+When('I am on the login page') do
+    visit new_user_session_path
+end
+
+When('I press {string}') do |link_name|
+    click_link link_name
+end
+
+Given('I tick remember me') do
+    check 'user_remember_me'
+end
+
+Given('show me the page') do
+    save_and_open_page
 end
 
 Given('I am logged in as {string}') do |name|
-    user = User.find_by(name: name)
-    login_as(user, scope: :user)
+    user = User.find_by name: name
+    login_as user, scope: :user
+end
+
+Given('I am on the index page') do
+    visit welcome_index_path
+end
+
+When('I choose {string} from {string}') do |input, field|
+    select input, from: field
 end
 
 Given('I visit compose message site') do
