@@ -37,8 +37,8 @@ Given('show me the page') do
 end
 
 Given('I am logged in as {string}') do |name|
-    user = User.find_by name: name
-    login_as user, scope: :user
+    @user = User.find_by name: name
+    login_as @user, scope: :user
 end
 
 Given('I am on the index page') do
@@ -51,4 +51,17 @@ end
 
 Given('I visit compose message site') do
     visit new_conversation_path
+end
+
+Given("I send a mail to {string}") do |name|
+    @receiver = User.find_by(name: name)
+    @user.send_message(@receiver, 'Lorem ipsum...', 'Subject')
+end
+
+Given("I am on the {string}") do |string|
+pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I click on the {string} link") do |string|
+pending # Write code here that turns the phrase above into concrete actions
 end
