@@ -67,5 +67,6 @@ Given('William has sent a message to Greg') do
         Given I am logged in as 'Greg'
         And I am on the index page
         And I press 'Inbox'
+        And I click 'View'
     )
 end

@@ -11,17 +11,18 @@ Feature: User can manage messages
         And William has sent a message to Greg
 
     Scenario: User can receive a message
-        Then I should have '1' messages
+        Then I should have '1' message in inbox
 
     Scenario: User can reply to a message 
-        When I click 'View'
         And I fill in 'Reply Message' field with 'Hey there soldier'
         And I click 'Reply'
         Then I should see 'Your reply message was successfully sent!'
 
-    Scenario: User can delete a message
-        When I click 'View' 
+    Scenario: User can trash and untrash message
         And I click 'Move to trash'
-        Then I should have '0' messages
+        Then I should have '0' message in inbox
         And I click 'Trash'
-        Then I should see '1' messages
+        Then I should have '1' message in trash
+        And I click 'View'
+        And I click 'Untrash'
+        Then I should have '1' message in inbox
