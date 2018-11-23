@@ -8,16 +8,14 @@ Feature: User can manage messages
         | name    | email              | password |
         | Greg    | greg@ranom.com     | password |
         | William | william@random.com | password |
+        And 'William' has sent a message to 'Greg'
 
     Scenario: User can receive a message
-        Given I am logged in as 'William'
-        And I send a mail to 'Greg'
-        And I am on the index page
-        And I click 'Logout'
         Given I am logged in as 'Greg'
         And I am on the index page
         And I press 'Inbox'
         Then I should have '1' messages
-        #And I click on the 'View' link
-        # And I click on the 'Move to trash' link
-        # Then I should have '0' messages 
+        When I click 'View'
+        And I fill in 'Reply Message' field with 'Hey there soldier'
+        And I click 'Reply'
+        Then I should see 'Your reply message was successfully sent!'

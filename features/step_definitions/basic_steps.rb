@@ -58,7 +58,11 @@ Given('I send a mail to {string}') do |name|
     @user.send_message @receiver, 'Jon smells like coffee', 'Subject'
 end
 
-Then('I should have {string} messages') do |expected_count|
-    count = @receiver.mailbox.inbox.count
-    expect(count).to eq expected_count.to_i
-end  
+Given('{string} has sent a message to {string}') do |name, recepient|
+    steps %(
+        Given I am logged in as "#{name}"
+        And I send a mail to "#{recepient}"
+        And I am on the index page
+        And I click 'Logout'
+    )
+end
