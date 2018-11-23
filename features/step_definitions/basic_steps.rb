@@ -58,11 +58,14 @@ Given('I send a mail to {string}') do |name|
     @user.send_message @receiver, 'Jon smells like coffee', 'Subject'
 end
 
-Given('{string} has sent a message to {string}') do |name, recepient|
+Given('William has sent a message to Greg') do 
     steps %(
-        Given I am logged in as "#{name}"
-        And I send a mail to "#{recepient}"
+        Given I am logged in as "William"
+        And I send a mail to "Greg"
         And I am on the index page
         And I click 'Logout'
+        Given I am logged in as 'Greg'
+        And I am on the index page
+        And I press 'Inbox'
     )
 end
