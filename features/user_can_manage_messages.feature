@@ -23,3 +23,5 @@ Feature: User can manage messages
         When I click 'View' 
         And I click 'Move to trash'
         Then I should have '0' messages
+        And I click 'Trash'
+        Then I should see '1' messages
