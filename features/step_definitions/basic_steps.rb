@@ -53,15 +53,12 @@ Given('I visit compose message site') do
     visit new_conversation_path
 end
 
-Given("I send a mail to {string}") do |name|
-    @receiver = User.find_by(name: name)
-    @user.send_message(@receiver, 'Lorem ipsum...', 'Subject')
+Given('I send a mail to {string}') do |name|
+    @receiver = User.find_by name: name
+    @user.send_message @receiver, 'Jon smells like coffee', 'Subject'
 end
 
-Given("I am on the {string}") do |string|
-pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("I click on the {string} link") do |string|
-pending # Write code here that turns the phrase above into concrete actions
-end
+Then('I should have {string} messages') do |expected_count|
+    count = @receiver.mailbox.inbox.count
+    expect(count).to eq expected_count.to_i
+end  
