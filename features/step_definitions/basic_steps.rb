@@ -37,8 +37,8 @@ Given('show me the page') do
 end
 
 Given('I am logged in as {string}') do |name|
-    user = User.find_by name: name
-    login_as user, scope: :user
+    @user = User.find_by name: name
+    login_as @user, scope: :user
 end
 
 Given('I am on the index page') do
@@ -51,4 +51,22 @@ end
 
 Given('I visit compose message site') do
     visit new_conversation_path
+end
+
+Given('I send a mail to {string}') do |name|
+    @receiver = User.find_by name: name
+    @user.send_message @receiver, 'Jon smells like coffee', 'Subject'
+end
+
+Given('William has sent a message to Greg') do 
+    steps %(
+        Given I am logged in as "William"
+        And I send a mail to "Greg"
+        And I am on the index page
+        And I click 'Logout'
+        Given I am logged in as 'Greg'
+        And I am on the index page
+        And I press 'Inbox'
+        And I click 'View'
+    )
 end

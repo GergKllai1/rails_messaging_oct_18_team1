@@ -24,3 +24,13 @@ end
 Then('I should be on the compose message site') do
     expect(current_path).to eq new_conversation_path
 end
+
+Then('I should have {string} message in inbox') do |expected_count|
+    count = @receiver.mailbox.inbox.count
+    expect(count).to eq expected_count.to_i
+end  
+
+Then('I should have {string} message in trash') do |expected_count|
+    count = @receiver.mailbox.trash.count
+    expect(count).to eq expected_count.to_i
+end  
